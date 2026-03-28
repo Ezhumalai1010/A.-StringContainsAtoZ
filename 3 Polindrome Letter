@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class threeletterspolind {
+    public static void main(String[] args) {
+        String s = "aabaa";
+
+        int[] left = new int[26];
+        int[] right = new int[26];
+        for (char ch : s.toCharArray()) {
+            right[ch - 'a']++;
+        }
+
+        int count = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            right[s.charAt(i) - 'a']--;
+            int temp = 0;
+            for (int c = 0; c < 26; c++) {
+                if (left[c] == right[c] && left[c] != 0 && right[c] != 0) {
+                    temp++;
+                }
+            }
+
+            count += temp;
+            left[s.charAt(i) - 'a']++;
+        }
+
+        System.out.println(count);
+    }
+}
