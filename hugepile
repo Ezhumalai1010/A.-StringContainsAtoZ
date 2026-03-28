@@ -1,0 +1,24 @@
+import java.util.*;
+class hugepile{
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int k=s.nextInt();
+        
+        int ti=0;
+        boolean flag=false;
+        int ma=n,min=n;
+        while(ma>=k || min>=k){
+            if(ma==k || min==k){
+                flag=true;
+                break;
+            }
+            ti++;
+            ma=(ma+1)/2;
+            min=min/2;
+                
+        }
+        System.out.print(flag?ti:"-1");
+        
+    }
+}
